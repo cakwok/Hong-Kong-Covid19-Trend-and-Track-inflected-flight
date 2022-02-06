@@ -5,7 +5,9 @@ Hong Kong Covid19 Latest Trend 1.0 - Casca Kwok
 
 https://hkcbc.pythonanywhere.com/
 
-A daily python tool I use every day to track the latest trend of covid 19 situation in Hong Kong.  Why wait until news media update and in their own format, and difficult to see the trend in my desired way?
+A daily python tool I used to use every day to track the latest trend of covid 19 situation in Hong Kong.  The original purpose of the tool was to track if I have been exposed to virus contact when I was taking a flight back to Hong Kong at the time of early stage of the pandemics (Mar 2020).
+
+Hong Kong deploys zero case stragegy.  Therefore, source of inflection is tracked and flight information is released from data.gov.hk.  
 
 Features
 ------------
