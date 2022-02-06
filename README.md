@@ -9,7 +9,7 @@ A daily python tool I used to use every day to track the latest trend of covid 1
 
 Hong Kong deploys zero case stragegy.  Therefore, source of inflection is tracked and flight information is released from data.gov.hk.  
 
-The tool was developed when I have got beginner course of python.  Therefore, expect beginner codes here for myself to see how I dealed with it in the past ;)
+Expect beginner codes here, but I like the idea of solving a real problem instead of √(−1)!
 
 Features
 ------------
