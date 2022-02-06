@@ -20,7 +20,7 @@ Features
 
 Roadmap Features for brain storm
 ---------------------------------
-- Predicts potential of flight suspension mechanism causing by in flight confirmed cases
+- Predicts potential of flight suspension mechanism by calculating 4 weeks in flight confirmed number
 
 Note
 ------------
