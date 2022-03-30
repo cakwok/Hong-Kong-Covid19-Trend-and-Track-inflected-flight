@@ -2,7 +2,7 @@
 import requests
 
 from pylab import * #matplotlib
-from scipy.ndimage import gaussian_filter1d #To smooth y axis
+from scipy.ndimage.filters import gaussian_filter1d #To smooth y axis
 import matplotlib.style as style #beautify graph
 #import mpl_font.wqy #plot with chinese titles
 
@@ -25,18 +25,20 @@ def corona_daily_case_plot():
     daily_corona_case_num = requests.request("GET", url, headers=headers, data = payload).json()
 
     for i in daily_corona_case_num:
-
         dates.append(i["As of date"])
 
         if i["Number of confirmed cases"] != '':
             y.append(i["Number of confirmed cases"])
-            delta.append(i["Number of confirmed cases"] - previous_cases)
+            delta.append(int(i["Number of confirmed cases"]) - previous_cases)
             previous_cases = i["Number of confirmed cases"]
+        elif i["Number of cases tested positive for SARS-CoV-2 virus by rapid antigen tests"]!= '':
+            y.append(i["Number of cases tested positive for SARS-CoV-2 virus by nucleic acid tests"] + i["Number of cases tested positive for SARS-CoV-2 virus by rapid antigen tests"])
+            delta.append(i["Number of cases tested positive for SARS-CoV-2 virus by nucleic acid tests"]  + i["Number of cases tested positive for SARS-CoV-2 virus by rapid antigen tests"] - previous_cases)
+            previous_cases = i["Number of cases tested positive for SARS-CoV-2 virus by nucleic acid tests"]  + i["Number of cases tested positive for SARS-CoV-2 virus by rapid antigen tests"]
         else:
-            y.append(i["Number of cases tested positive for SARS-CoV-2 virus"])
-            delta.append(i["Number of cases tested positive for SARS-CoV-2 virus"] - previous_cases)
-            previous_cases = i["Number of cases tested positive for SARS-CoV-2 virus"]
-
+            y.append(i["Number of cases tested positive for SARS-CoV-2 virus by nucleic acid tests"])
+            delta.append(i["Number of cases tested positive for SARS-CoV-2 virus by nucleic acid tests"] - previous_cases)
+            previous_cases = i["Number of cases tested positive for SARS-CoV-2 virus by nucleic acid tests"]
 #
 
     daily_num_of_cases = str(y[-1]) + "宗"
@@ -70,4 +72,5 @@ def corona_daily_case_plot():
 
     return daily_num_of_cases, last_update
 
-
+#test = corona_daily_case_plot()
+#print (test)
